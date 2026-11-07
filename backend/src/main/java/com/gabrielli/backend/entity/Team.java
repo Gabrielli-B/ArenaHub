@@ -1,4 +1,4 @@
-package com.gabrielli.arenahub.entity;
+package com.gabrielli.backend.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
@@ -9,11 +9,12 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "teams")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Team {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,3 +29,4 @@ public class Team {
 
     private String city;
 }
+

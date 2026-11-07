@@ -1,4 +1,4 @@
-package com.gabrielli.arenahub.entity;
+package com.gabrielli.backend.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -13,7 +13,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tournaments")
+@Table(name = "tournament")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -39,6 +39,5 @@ public class Tournament {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 
 }
