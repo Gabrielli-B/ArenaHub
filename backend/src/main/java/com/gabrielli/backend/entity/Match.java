@@ -33,9 +33,9 @@ public class Match {
 
     private int round;
 
-    private int homeTeamScore = 0;
+    private Integer homeTeamScore = 0;
 
-    private int awayTeamScore = 0;
+    private Integer awayTeamScore = 0;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
