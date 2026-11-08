@@ -37,5 +37,7 @@ public class Match {
 
     private int awayTeamScore = 0;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private MatchStatus matchStatus;
 }

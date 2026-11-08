@@ -1,11 +1,14 @@
 package com.gabrielli.backend.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum RegistrationStatus {
-    IN_PROGRESS("EM PROGRESSO"),
-    COMPLETED("COMPLETA"),
+    OPEN("ABERTA"),
+    CLOSED("ENCERRADA"),
     CANCELLED("CANCELADA");
 
-    private String description;
+    private final String description;
 
     RegistrationStatus(String description) {
         this.description = description;

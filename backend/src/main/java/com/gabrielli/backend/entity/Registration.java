@@ -25,7 +25,7 @@ uniqueConstraints = {
 public class Registration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "tournament_id", nullable = false)
