@@ -1,5 +1,6 @@
 package com.gabrielli.backend.entity;
 
+import com.gabrielli.backend.enums.MatchStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,5 +37,5 @@ public class Match {
 
     private int awayTeamScore = 0;
 
-    //private MatchStatus matchStatus;
+    private MatchStatus matchStatus;
 }

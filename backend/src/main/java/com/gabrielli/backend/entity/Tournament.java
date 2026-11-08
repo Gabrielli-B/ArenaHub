@@ -1,5 +1,6 @@
 package com.gabrielli.backend.entity;
 
+import com.gabrielli.backend.enums.RegistrationStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -30,7 +31,7 @@ public class Tournament {
 
     private String modality;
 
-    //Status status;
+    private RegistrationStatus registrationStatus;
 
     @Column(nullable = false)
     @Min(value = 4, message = "O lime mínimo deve ser de 4 participantes")
