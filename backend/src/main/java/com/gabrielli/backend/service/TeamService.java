@@ -67,7 +67,7 @@ public class TeamService {
     }
 
     @Transactional(readOnly = true)
-    public List<TeamResponse> findAll() {
+    public List<TeamResponse> findAllTeams() {
         return teamMapper.toResponseList(teamRepository.findAll(Sort.by("name")));
     }
 
