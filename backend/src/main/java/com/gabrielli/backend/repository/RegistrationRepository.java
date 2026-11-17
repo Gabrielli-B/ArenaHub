@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RegistrationRepository extends JpaRepository<Registration,Long> {
 
     boolean existsByTeamId(Long teamId);
-
+    void deleteByTournamentId(Long tournamentId);
 }
