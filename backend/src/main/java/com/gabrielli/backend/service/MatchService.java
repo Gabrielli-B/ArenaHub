@@ -72,7 +72,7 @@ public class MatchService {
     private List<Match> generateRoundRobin(Tournament tournament, List<Team> teams) {
         List<Team> rotation = new ArrayList<>(teams);
         if (rotation.size() % 2 != 0) {
-            rotation.add(null); // "folga" fictícia: quem enfrenta null descansa na rodada
+            rotation.add(null);
         }
 
         int size = rotation.size();
@@ -111,7 +111,6 @@ public class MatchService {
         return match;
     }
 
-    // ---------------------------------------------------------------- partidas
 
     @Transactional(readOnly = true)
     public List<MatchResponse> findMatchesByTournament(Long tournamentId, Integer round) {
@@ -158,14 +157,12 @@ public class MatchService {
     public List<ClassificationResponse> getClassification(Long tournamentId) {
         tournamentService.findEntityById(tournamentId); // garante o 404 se o torneio não existir
 
-        // Começa com uma linha zerada para cada equipe inscrita (mesmo as sem jogos)
         Map<Long, Standing> table = new LinkedHashMap<>();
         for (Registration registration : registrationRepository.findByTournamentIdOrderByTeamNameAsc(tournamentId)) {
             Team team = registration.getTeam();
             table.put(team.getId(), new Standing(team));
         }
 
-        // Só partidas finalizadas entram no cálculo
         for (Match match : matchRepository.findByTournamentIdAndMatchStatus(tournamentId, MatchStatus.FINISHED)) {
             int homeScore = match.getHomeTeamScore();
             int awayScore = match.getAwayTeamScore();
@@ -173,7 +170,6 @@ public class MatchService {
             table.get(match.getAwayTeam().getId()).addResult(awayScore, homeScore);
         }
 
-        // Desempate: pontos, vitórias, saldo de gols, gols pró e, por fim, nome
         Comparator<Standing> order = Comparator
                 .comparingInt(Standing::getPoints).reversed()
                 .thenComparing(Comparator.comparingInt(Standing::getWins).reversed())

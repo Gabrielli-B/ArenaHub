@@ -47,7 +47,6 @@ public class RegistrationService {
             throw new BusinessRuleException("A equipe já está inscrita neste torneio");
         }
 
-        // Contagem direta no banco: é a fonte confiável para checar o limite
         long registered = registrationRepository.countByTournamentId(tournamentId);
         if (registered >= tournament.getTeamLimit()) {
             throw new BusinessRuleException("O torneio já atingiu o limite de " + tournament.getTeamLimit() + " equipes");
@@ -58,7 +57,6 @@ public class RegistrationService {
         registration.setTeam(team);
         Registration saved = registrationRepository.save(registration);
 
-        // Mantém o contador do torneio sincronizado (a entidade é gerenciada, o JPA grava sozinho no fim da transação)
         tournament.setRegistrationCount((int) registered + 1);
 
         return registrationMapper.toResponse(saved);
@@ -66,7 +64,7 @@ public class RegistrationService {
 
     @Transactional(readOnly = true)
     public List<RegistrationResponse> findByTournament(Long tournamentId) {
-        tournamentService.findEntityById(tournamentId); // garante o 404 se o torneio não existir
+        tournamentService.findEntityById(tournamentId);
         return registrationMapper.toResponseList(
                 registrationRepository.findByTournamentIdOrderByTeamNameAsc(tournamentId));
     }
