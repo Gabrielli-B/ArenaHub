@@ -3,7 +3,7 @@ package com.gabrielli.backend.service;
 import com.gabrielli.backend.dto.TournamentRequest;
 import com.gabrielli.backend.dto.TournamentResponse;
 import com.gabrielli.backend.entity.Tournament;
-import com.gabrielli.backend.enums.RegistrationStatus;
+import com.gabrielli.backend.enums.TournamentStatus;
 import com.gabrielli.backend.exception.BusinessRuleException;
 import com.gabrielli.backend.exception.ResourceNotFoundException;
 import com.gabrielli.backend.mapper.TournamentMapper;
@@ -37,7 +37,7 @@ public class TournamentService {
     }
 
     private void checkIsOpen(Tournament tournament, String message) {
-        if (tournament.getRegistrationStatus() != RegistrationStatus.OPEN) {
+        if (tournament.getStatus() != TournamentStatus.OPEN) {
             throw new BusinessRuleException(message);
         }
     }
@@ -47,7 +47,7 @@ public class TournamentService {
     public TournamentResponse createTournament(TournamentRequest request) {
         Tournament tournament = tournamentMapper.toEntity(request);
 
-        tournament.setRegistrationStatus(RegistrationStatus.OPEN);
+        tournament.setStatus(TournamentStatus.OPEN);
 
         return tournamentMapper.toResponse(tournamentRepository.save(tournament));
     }

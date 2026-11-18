@@ -25,7 +25,7 @@ public class TournamentMapper {
                 tournament.getId(),
                 tournament.getName(),
                 tournament.getModality(),
-                tournament.getRegistrationStatus(),
+                tournament.getStatus(),
                 tournament.getTeamLimit(),
                 tournament.getRegistrationCount(),
                 tournament.getCreatedAt()

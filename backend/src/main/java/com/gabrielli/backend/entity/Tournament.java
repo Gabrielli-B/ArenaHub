@@ -2,6 +2,7 @@ package com.gabrielli.backend.entity;
 
 import com.gabrielli.backend.enums.Modality;
 import com.gabrielli.backend.enums.RegistrationStatus;
+import com.gabrielli.backend.enums.TournamentStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -36,7 +37,7 @@ public class Tournament {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RegistrationStatus registrationStatus;
+    private TournamentStatus status;
 
     @Column(nullable = false)
     @Min(value = 4, message = "O limite mínimo deve ser de 4 equipes")
