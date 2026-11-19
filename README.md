@@ -187,7 +187,7 @@ VITE_API_URL=http://localhost:8080/arenahub
 
 ---
 
-## 🗄️ Banco de dados
+##  Banco de dados
 
 O projeto usa o **H2 em modo arquivo**, então os dados persistem entre execuções e não há nada para instalar.
 
