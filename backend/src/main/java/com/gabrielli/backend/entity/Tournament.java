@@ -1,7 +1,6 @@
 package com.gabrielli.backend.entity;
 
 import com.gabrielli.backend.enums.Modality;
-import com.gabrielli.backend.enums.RegistrationStatus;
 import com.gabrielli.backend.enums.TournamentStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
