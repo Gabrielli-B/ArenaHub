@@ -6,7 +6,7 @@
 
 ---
 
-## 📖 Visão geral
+## Visão geral
 
 O **ArenaHub** é uma aplicação web para organizar torneios esportivos no formato pontos corridos (todos contra todos, turno único). Ele substitui planilhas e anotações em papel: o organizador cadastra as equipes, cria o torneio, abre as inscrições, inicia a competição e o sistema gera a tabela de jogos automaticamente, recebe os placares e calcula a classificação em tempo real. Ao final, os dados podem ser exportados em JSON.
 
