@@ -4,6 +4,7 @@ import com.gabrielli.backend.dto.ClassificationResponse;
 import com.gabrielli.backend.dto.MatchRequest;
 import com.gabrielli.backend.dto.MatchResponse;
 import com.gabrielli.backend.service.MatchService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class MatchController {
     }
 
     @PutMapping("/{matchId}/result")
-    public MatchResponse registerResult(@PathVariable Long matchId, @RequestBody MatchRequest request) {return matchService.registerResult(matchId, request);}
+    public MatchResponse registerResult(@PathVariable Long matchId, @Valid @RequestBody MatchRequest request) {return matchService.registerResult(matchId, request);}
 
     @GetMapping("/tournament/{tournamentId}/classification")
     public List<ClassificationResponse> getClassification(@PathVariable Long tournamentId) {return matchService.getClassification(tournamentId);}

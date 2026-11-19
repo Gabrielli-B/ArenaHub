@@ -29,6 +29,7 @@ public class RegistrationController {
     List<RegistrationResponse> findByTournament(@PathVariable Long id) {return registrationService.findByTournament(id);}
 
     @DeleteMapping("/{tournamentId}/teams/{teamId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeTeam(@PathVariable Long tournamentId, @PathVariable Long teamId) {registrationService.removeTeam(tournamentId,teamId);}
 
 }
