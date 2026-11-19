@@ -77,7 +77,7 @@ A gestão manual de campeonatos é trabalhosa e sujeita a erros: cálculo da tab
 
 ---
 
-## 🔗 Relacionamentos
+##  Relacionamentos
 
 - **Torneio ⟷ Equipe (N:N):** resolvido pela entidade associativa **Registration** (inscrição). Existe uma restrição de unicidade no par `(torneio, equipe)`.
 - **Torneio → Partida (1:N):** cada partida pertence a um único torneio.
